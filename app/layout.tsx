@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import Header from "@/components/Header";
+import Provider from "./provider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -15,10 +17,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "pixoAI - AI Image Generator",
+  title: "PixoAI - AI Image Generator",
   description: "PixoAI is a cutting-edge AI-powered platform that turns your words into visually captivating images. Effortlessly generate stunning visuals from text, powered by advanced machine learning and Next.js for seamless performance.",
   openGraph: {
-    title: "pixoAI - AI Image Generator",
+    title: "PixoAI - AI Image Generator",
     description: "PixoAI is a cutting-edge AI-powered platform that turns your words into visually captivating images. Effortlessly generate stunning visuals from text, powered by advanced machine learning and Next.js for seamless performance.",
   }
 };
@@ -31,10 +33,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
       >
         <ThemeProvider attribute="class" defaultTheme="dark">
-          {children}
+          <Provider>
+            <Header />
+            {children}
+          </Provider>
         </ThemeProvider>
       </body>
     </html>

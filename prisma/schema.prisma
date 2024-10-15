@@ -24,6 +24,18 @@ model User {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  posts     Post[]
+}
+
+model Post {
+  id        String   @id @default(cuid())
+  prompt    String
+  url       String
+  seed      Int
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Account {

@@ -41,7 +41,7 @@ return (
             duration: 0.25,
             delay: 0.25
           }}
-          className="text-white/50"
+          className="text-white/50 text-center px-5"
         >
           Generate stunning images from text using AI for free.
         </motion.p>

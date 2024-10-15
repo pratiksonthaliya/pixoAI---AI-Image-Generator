@@ -20,8 +20,9 @@ export default function Header() {
   return (
     <div className='fixed top-0 w-full h-[60px] bg-black border-b border-white/60 p-3 flex justify-between items-center'>
         <Link href='/'>
-            <h2 className='ml-2 text-2xl font-bold'>PixoAI</h2>
+            <h2 className='md:ml-1 text-2xl font-bold'>PixoAI</h2>
         </Link>
+        <div className='md:mr-1'>
         {initialLoading && status === 'loading' ? (
             <BiLoaderCircle className='animate-spin text-4xl' />
         ) : !session ? (
@@ -33,8 +34,8 @@ export default function Header() {
                 <AvatarImage src={session?.user?.image || ""} />
                 <AvatarFallback>CN</AvatarFallback>
             </Avatar>
-        )
-    }
+        )}
+        </div>
     </div>
   )
 }

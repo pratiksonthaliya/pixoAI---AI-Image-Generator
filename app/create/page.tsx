@@ -38,9 +38,6 @@ export default function Page() {
       setLoading(true);
       const response = await fetch("/api/image", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify(values),
       })
       const data = await response.json();
@@ -50,7 +47,8 @@ export default function Page() {
         toast({variant:'destructive' , description: data.error || 'An error occured.'})
       }
     } catch (error) {
-      console.log(error);
+      toast({variant:'destructive' , description: 'An error occured.' + error})
+      // console.log(error);
     } finally {
       setLoading(false);
     }

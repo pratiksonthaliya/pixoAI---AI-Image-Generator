@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PixoAI - AI Image Generator
 
-## Getting Started
+PixoAI is an innovative platform that transforms text into visually stunning images using cutting-edge AI technology. With a user-friendly interface and seamless integration with Google OAuth for login, PixoAI makes it easy to bring your imagination to life.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **AI-powered Image Generation**: Enter a prompt, and PixoAI will generate a unique image based on your input.
+- **Google OAuth Authentication**: Secure and easy login with Google, powered by NextAuth.
+- **Profile Page**: View all of your previously generated images on your profile page.
+- **Create Page**: Effortlessly create new images using a simple prompt input.
+- **Home Page**: Browse general information and get started with the platform.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Home Page**: Introduction and overview of PixoAI.
+- **Create Page**: The core page where users can input a text prompt to generate images.
+- **Profile Page**: Displays all the images you’ve generated in the past, allowing easy access to previous creations.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+- **Next.js**: For building the frontend and backend of the application.
+- **NextAuth**: Used for secure authentication with Google OAuth.
+- **Tailwind CSS**: Styling the application with modern, responsive designs.
+- **Prisma**: ORM for managing database operations.
+- **Framer Motion**: Used for smooth animations across the app.
+- **Shadcn UI**: For accessible and customizable UI components.
+- **Zod**: Schema validation for ensuring input integrity.
 
-To learn more about Next.js, take a look at the following resources:
+## Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/pratiksonthaliya/pixo-ai.git
+   cd pixo-ai
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+3. Set up environment variables:
+   - Create a `.env` file and add your environment variables:
+     ```env
+     DATABASE_URL=your-database-url
+     NEXTAUTH_URL=http://localhost:3000
+     GOOGLE_CLIENT_ID=your-google-client-id
+     GOOGLE_CLIENT_SECRET=your-google-client-secret
+     ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Run Prisma migrations:
+   ```bash
+   npx prisma migrate dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) to view the application.
+
+## Scripts
+
+- `npm run dev`: Starts the development server.
+- `npm run build`: Builds the project for production.
+- `npm start`: Runs the production server.
+
+- `yarn dev`: Starts the development server.
+- `yarn build`: Builds the project for production.
+- `yarn start`: Runs the production server.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

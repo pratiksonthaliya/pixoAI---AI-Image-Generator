@@ -21,8 +21,12 @@ export async function POST(request: NextRequest) {
     }
     const randomSeed = generateRandomNumber();
 
-    const imageUrl = `https:/image.pollinations.ai/prompt/${encodeURIComponent(prompt)}&seed=${randomSeed}&width=512&height=512&noLogo=True`;
-    await fetch(imageUrl);
+    const imageUrl = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}&seed=${randomSeed}&width=512&height=512&noLogo=True`;
+    // await fetch(imageUrl);
+    const imageResponse = await fetch(imageUrl);
+    if (!imageResponse.ok) {
+        return NextResponse.json({ error: "Failed to generate image" }, { status: 500 });
+    }
 
     await prisma.post.create({
         data: {

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 import { BiLoaderCircle } from 'react-icons/bi';
 import {motion} from 'framer-motion';
+import { toast } from '@/hooks/use-toast';
 
 export default function Profile() {
     const [loading, setLoading] = useState<boolean>(true);
@@ -18,7 +19,8 @@ export default function Profile() {
         const data = await response.json();
         setPosts(data);
         // console.log(data);
-      } catch (error) {
+      } catch (error: Error | unknown) {
+        toast({variant:'destructive' , description: 'An error occured.'})
         console.log(error);
       } finally {
         setLoading(false);
@@ -53,7 +55,7 @@ export default function Profile() {
                         delay: index * 0.1
                     }}
                     key={post.id} 
-                    className='w-full h-full p-2.5 border rounded-md lg:max-h-[300px]'
+                    className='w-full h-fit p-2.5 border rounded-md'
                   >
                     <Image src={post?.url} alt={post.prompt} className='w-full object-contain rounded-md' width={250} height={250} />
                     <p className='text-white/80'>{post.prompt}</p>

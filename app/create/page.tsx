@@ -38,18 +38,18 @@ export default function Page() {
       setLoading(true);
       const response = await fetch("/api/image", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify(values),
       })
       const data = await response.json();
       if(response.status === 200){
         setOutputImage(data.url);
+      } else if(response.status === 504){
+        toast({variant:'destructive' , description: 'Request Timed Out. Please try again.'})
       } else {
         toast({variant:'destructive' , description: data.error || 'An error occured.'})
       }
-    } catch (error) {
+    } catch (error: Error | unknown) {
+      toast({variant:'destructive' , description: 'An error occured.'})
       console.log(error);
     } finally {
       setLoading(false);

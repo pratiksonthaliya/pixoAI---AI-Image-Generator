@@ -51,6 +51,6 @@ export async function GET() {
         return NextResponse.json({ error: "You are Unauthorized" }, { status: 401 });
     }
 
-    const posts = await prisma.post.findMany({ where: { userId: session.user?.id } });
+    const posts = await prisma.post.findMany({ where: { userId: session.user?.id }, orderBy: { createdAt: "desc" } });
     return NextResponse.json(posts);
 }

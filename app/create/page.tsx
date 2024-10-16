@@ -57,16 +57,16 @@ export default function Page() {
   }
 
   return (
-    <div className='w-full h-dvh p-3 pt-[72px] flex justify-start items-start flex-col'>
+    <div className='w-full min-h-dvh p-3 pt-[72px] flex justify-start items-start flex-col'>
       <div className='w-full p-3'>
         <h1 className='text-center font-semibold text-white text-3xl'>Create</h1>
         <p className='text-white/50 text-center text-md'>
             Create Stunning Images from Text using AI for FREE.
         </p>
       </div>
-      <div className='w-full p-3 flex h-full gap-3'>
+      <div className='w-full p-2 flex gap-3 h-[calc(100dvh-200px)] lg:flex-row flex-col'>
         <div className='__form flex-[2] flex justify-center items-start flex-col gap-3 px-5'>
-          <p className='text-left text-lg text-white/80'>Type your prompt to create any image you can imagine!</p>
+          <p className='text-center w-full lg:text-left text-md md:text-lg text-white/80'>Type your prompt to create any image you can imagine!</p>
           <div className='flex gap-2 w-full'>
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="flex w-full gap-2">
@@ -74,7 +74,7 @@ export default function Page() {
                   control={form.control}
                   name="prompt"
                   render={({ field }) => (
-                    <FormItem className='w-full max-w-[70%]'>
+                    <FormItem className='w-full max-w-full lg:max-w-[70%]'>
                       <FormControl >
                         <Input placeholder='a monkey eating an icecream...' className='transition-all w-full border-white' {...field}/>
                       </FormControl>
@@ -87,7 +87,7 @@ export default function Page() {
             </Form>
           </div>
         </div>
-        <div className='__output flex-[1] bg-white/5 rounded-lg relative overflow-hidden md:mr-10 ' >
+        <div className='__output flex-[1] min-h-[300px] lg:min-h-full lg:h-full bg-white/5 rounded-lg relative overflow-hidden md:mr-10 w-full h-full' >
         {outputImage ? (
           <Image src={outputImage} alt="output image" width={300} height={300} className='w-full h-full object-contain' />
         ) : (

@@ -53,7 +53,7 @@ export default function Profile() {
                         delay: index * 0.1
                     }}
                     key={post.id} 
-                    className='w-full h-full p-2.5 border rounded-md'
+                    className='w-full h-full p-2.5 border rounded-md lg:max-h-[300px]'
                   >
                     <Image src={post?.url} alt={post.prompt} className='w-full object-contain rounded-md' width={250} height={250} />
                     <p className='text-white/80'>{post.prompt}</p>
